@@ -1,0 +1,61 @@
+Dia 1:
+Statlog Dataset:
+
+Acurácia da Decision Tree: 
+- 69,11% para dataset pre-processado 
+- 67.64% com dataset original.
+
+obs: tamanho do conjunto de testes: 25%
+
+A Feature "Age" teve P-value de 0.799, as demais obtiveram P-value inferior a 0.15 
+de acordo com api statsmodels.formula do python.
+
+Dia 2:
+
+Na plataforma Gretl a feature "Age" obteve o P-value superior a 0.50 e o modelo com
+a variável apresentou a métrica adjusted R-squared de 0.522155, ao retirar esta feature
+o modelo apresentou a métrica adjusted R-squared de 0,523199, outras features obtiveram
+o p-value acima de 0.05, porém ao retira-las percebe-se uma queda na métrica adjusted
+R-squared, portanto vejo como válido mantê-las.
+
+Acurácia da Decision Tree:
+-69.11% para o dataset original sem a feature "Age"
+-75% para o dataset pre-processado sem a feature "Age"
+
+obs: tamanho do conjunto de testes: 25% da base de dados
+
+Acurácia da Decision Tree:
+-75.92% para o dataset pre-processado sem a feature "Age"
+tamanho do conjunto de testes: 20%.
+
+-85.18% para o dataset pre-processado sem a feature "Age"
+tamanho do conjunto de testes: 10%
+
+Cleveland Dataset:
+
+No presente Dataset a feature idade apresenta o p-value de 0.193, outra diferença em 
+relação ao Dataset de Statlog é que a feature "chol" possui o p-value de 0.543, o que o
+torna passível de extração. 
+
+Acurácia da Decision Tree:
+-70.49% para o dataset original
+-75.40% para o dataset pre-processado
+
+Acurácia da Decision Tree:
+-67.21% para o dataset original sem a feature "age"
+-73.77% para o dataset pre-processado sem a feature "age" 
+
+Statlog e Cleveland Datasets:
+
+Acurácia da Decision Tree:
+-99.25% usando o dataset pre-processado de cleveland para treino e de statlog para teste
+-96.69% usando o dataset pre-processado de statlog para treino e de clevelando para teste
+
+Dia 3:
+
+Foi observado que a base de dados de cleveland estava pre-processada os valores que
+na base de dados original estavam ausentes foram alterados para "-1". Visto isso
+foi utilizado a biblioteca "Imputer" para cuidar dos dados ausentes, foi usado a
+estratégia do mais frequente(Moda) para substituir os dados ausentes. Assim novos
+testes foram realizados usando a base de dados original de cleveland. Os mesmos
+resultados do dia anterior foram obtidos (99.25% de acurácia usando a base pre-processada).

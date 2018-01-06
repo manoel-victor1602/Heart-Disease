@@ -1,0 +1,5 @@
+A base de dados "processed_cleveland_data.csv" foi retirada do link:
+http://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data
+
+A base de dados "data.statlog" e a descrição da mesma "statlog.data_specification" foram retiradas do link:
+http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/heart/

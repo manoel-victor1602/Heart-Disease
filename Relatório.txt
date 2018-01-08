@@ -59,3 +59,18 @@ foi utilizado a biblioteca "Imputer" para cuidar dos dados ausentes, foi usado a
 estratégia do mais frequente(Moda) para substituir os dados ausentes. Assim novos
 testes foram realizados usando a base de dados original de cleveland. Os mesmos
 resultados do dia anterior foram obtidos (99.25% de acurácia usando a base pre-processada).
+
+Dia 4:
+
+Observando que os testes anteriores no datasets separados "DT_cleveland_prediction.py" e 
+"DT_statlog_prediction.py" foram feitos usando método hold-out para treino e predição
+dos casos, estes novos testes foram feitos com o método 10-fold cross validation para análise
+dos resultados usando a acurácia como métrica.
+
+obs: as bases de dados usadas foram as completas com as 13 features aconselhadas pela
+especificação das bases, os dados foram padronizados para ficarem na mesma escala e os
+dados ausentes foram preenchidos com a moda no caso da base de dados de cleveland.
+
+Resultados: 
+	DT_cleveland_prediction.py: 75.49%
+	DT_statlog_prediction.py: 72.59%

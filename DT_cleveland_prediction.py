@@ -57,6 +57,11 @@ y_pred = classifier.predict(X_test)
 from sklearn.metrics import confusion_matrix
 confusion_matrix(y_test, y_pred)
 
+#Printing Score from K-fold cross validation test
+from sklearn.model_selection import cross_val_score
+scores = cross_val_score(classifier, X, y, scoring='accuracy', cv=10)
+print("%.2f" %(scores.mean()*100)+ "%")
+
 #Verifying statistical correlation
 import statsmodels.formula.api as sm
 

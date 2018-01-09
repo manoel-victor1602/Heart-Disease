@@ -71,7 +71,11 @@ obs: as bases de dados usadas foram as completas com as 13 features aconselhadas
 especificação das bases, os dados foram padronizados para ficarem na mesma escala e os
 dados ausentes foram preenchidos com a moda no caso da base de dados de cleveland.
 
-Dia 5
+Resultados: 
+	DT_cleveland_prediction.py: 75.49%
+	DT_statlog_prediction.py: 72.59%
+
+Dia 5:
 
 Análises utilizando O Software Tableau 10.4 foram feitas na base de dados de cleveland.
 Apenas uma parte da bateria de análises foram feitas, basicamente apenas para visualização
@@ -86,6 +90,73 @@ maiores de 50%, aumentando a gravidade. O pre-processamento foi feito visando si
 o diagnóstico mudando os valores diferentes de '0' e '1' para '1', assim representando
 apenas chances maiores de 50% de se ter doença do coração.
 
-Resultados: 
-	DT_cleveland_prediction.py: 75.49%
-	DT_statlog_prediction.py: 72.59%
+Para gerar novos gráficos foi considerado usar o p-value das features para mostrar de forma
+visual o quanto elas afetam no diagnóstico.
+
+Obs: O p-value foi encontrado usando o Mínimo Quadrados Ordinários (Ordinary Least Squares)
+do software Gretl.
+
+Features	 P-value      
+Thal		 1,04e^-05    
+Age		 0,8024
+Sex		 0,0021   
+CP		 0,0002   
+Trestbps	 0,1160
+Chol		 0,3322
+Fbs		 0,2497
+Restecg		 0,1216
+Thalach		 0,0344
+Exang		 0,0030
+Oldpeak		 0,1026	      
+Slope		 0,1399	      
+CA		 2,18e^-07
+
+R-quadrado ajustado: 0,505516
+
+O Gráfico que apresenta a feature Ca por Thal mostra que com Thal tendo o valor "Normal"
+e Ca sendo igual a '0', há 117 casos representando mais de 33% dos casos da base de dados
+e desses, 103 apresentam chances menores de 50% de possuir doença do coração.
+ 
+Para Thal tendo o valor "Fixed Defect", o número de total de
+casos é 19, não apresentando nem 10% da base de dados e desses apenas 7 possuem o risco de
+ter doença do coração menor do que 50%, ou seja diagnostic tendo o valor '0'. É visível
+também a predominancia de pacientes com chances maiores de 50% de ter doença do coração no
+caso de Thal ter o valor "Reversable Defect" o qual possui 117 casos sendo que desses apenas
+28 casos apresentam chances menores de 50% de o paciente ter doença do coração.
+
+O Gráfico da feature "Age" mostra que há sim um crescimento no número de doenças
+de coração nos pacientes com idade maior ou igual a 56 anos, portanto a feature, apesar de
+ter apresentado p-value de 0,8024 no teste OLS do Gretl, deve ser considerado para o diagnóstico
+de doença do coração.
+
+O gráfico da feature Chol mostra que os valores acima de 253 apresentam maior chance se ter
+doença do coração, visto que a partir deste valor a quantidade de pacientes com chances maiores
+de 50% de se ter doença do coração estão acima da media geral.
+
+No gráfico da feature Fbs, ha 258 registros com o valor "False" e 55 com o valor "True", e a
+o numero de pacientes com chances maiores de 50% de ter doença do coração está na media em 
+ambos os casos, o que deixa uma dúvida quanto a necessidade desta feature.
+
+No Gretl, ao retirar a Feature Fbs por causa dos resultados observados nos gráficos é visto
+que o valor da métrica R-quadrado ajustado diminui para 0,5049 o que implica que o modelo teve
+perda de desempenho, assim considera-se a inserção de Fbs no modelo novamente.
+
+Usando agora a acurácia do modelo como métrica para validação foi descoberto que com todas as
+features o modelo prevê com 74,78% enquanto sem a feature "Fbs" o modelo prevê com 75.43%,
+o que novamente põe a necessidade desta feature em questão.
+Obs: O teste foi feito no arquivo "DT_cleveland_prediction.py" com dados pre-processados, 
+usando as bibliotecas LabelEncoder para codificação dos valores categoricos, Imputer para
+inserção de valores ausentes, OneHotEncoder para transformar os valores categoricos codificados
+pelo LabelEncoder em Dummy Variables e a StandardScale para padronização dos valores das variáveis
+numéricas contínuas.
+
+Variáveis que faltam análises:
+
+Restecg		 
+Thalach		 
+Exang		 
+Oldpeak		 	      
+Slope		 	 
+Sex		    
+CP		  
+Trestbps	 

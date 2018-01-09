@@ -71,6 +71,21 @@ obs: as bases de dados usadas foram as completas com as 13 features aconselhadas
 especificação das bases, os dados foram padronizados para ficarem na mesma escala e os
 dados ausentes foram preenchidos com a moda no caso da base de dados de cleveland.
 
+Dia 5
+
+Análises utilizando O Software Tableau 10.4 foram feitas na base de dados de cleveland.
+Apenas uma parte da bateria de análises foram feitas, basicamente apenas para visualização
+de variáveis categóricas e usando agrupamentos nas variáveis discretas. Em todos os casos
+é usado a feature "Diagnostic" para visualização da quantidade de Pessoas com doença do
+coração ou não.
+
+Obs: A base de dados foi pre-processada, a variável dependente teve teve os valores
+originais modificados, inicialmente eram [0-4] sendo que '0' representava chances menores
+de 50% de o paciente possuir doença do coração e a partir de '1' as representava chances
+maiores de 50%, aumentando a gravidade. O pre-processamento foi feito visando simplificar
+o diagnóstico mudando os valores diferentes de '0' e '1' para '1', assim representando
+apenas chances maiores de 50% de se ter doença do coração.
+
 Resultados: 
 	DT_cleveland_prediction.py: 75.49%
 	DT_statlog_prediction.py: 72.59%

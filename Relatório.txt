@@ -159,4 +159,11 @@ Oldpeak
 Slope		 	 
 Sex		    
 CP		  
-Trestbps	 
+Trestbps	
+
+Dia 6:
+
+Com os resultados do dia anterior foi considerado retirar a feature Fbs do script
+"DT_cleveland_statlog.py" obtendo sem esta uma acurácia entre 99.62% e 100%, um resultado
+nao muito diferente dos resultados com a feature Fbs, o que mostra que a presença desta
+não resulta em perda ou ganho no modelo de Aprendizado de Máquina.

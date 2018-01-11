@@ -171,4 +171,9 @@ não resulta em perda ou ganho no modelo de Aprendizado de Máquina.
 Foi criado um template em python para treinamento e predição dos modelos 
 de Aprendizado de Máquina, template este que ja foi utilizado no "DT_cleveland_prediction.py",
 o código em questão ficou mais limpo e legível, com necessidade de importar apenas a biblioteca
-'template.py' criada para auxiliar os códigos em python deste projeto.
+'templates.py' criada para auxiliar os códigos em python deste projeto.
+
+Dia 7:
+
+O Template criado no dia anterior ("templates.py") foi usado na atualização do script 
+"DT_statlog_prediction.py", funcionou bem sem alterações.

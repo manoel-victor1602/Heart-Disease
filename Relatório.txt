@@ -167,3 +167,8 @@ Com os resultados do dia anterior foi considerado retirar a feature Fbs do scrip
 "DT_cleveland_statlog.py" obtendo sem esta uma acurácia entre 99.62% e 100%, um resultado
 nao muito diferente dos resultados com a feature Fbs, o que mostra que a presença desta
 não resulta em perda ou ganho no modelo de Aprendizado de Máquina.
+
+Foi criado um template em python para treinamento e predição dos modelos 
+de Aprendizado de Máquina, template este que ja foi utilizado no "DT_cleveland_prediction.py",
+o código em questão ficou mais limpo e legível, com necessidade de importar apenas a biblioteca
+'template.py' criada para auxiliar os códigos em python deste projeto.

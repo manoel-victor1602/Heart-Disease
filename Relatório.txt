@@ -221,3 +221,9 @@ Algumas funções específicas do problema foram retiradas a fim de deixar a biblio
 genérica, para isso foi criada a biblioteca 'utils.py'.
 
 A idéia 3 do dia anterior (Dia 8) foi realizada.
+
+Dia 10
+
+Os arquivos foram organizados em pastas separadas denominadas "Scripts" para os códigos
+python, "Datasets" para os conjuntos de dados e "Tableau Analysis" para as análises
+realizadas no Tableau Desktop.

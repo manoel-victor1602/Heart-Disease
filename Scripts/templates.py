@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import cross_val_score
-from utils import pre_processes_y, change
+from Scripts.utils import pre_processes_y, change
 import itertools
 import matplotlib.pyplot as plt
 import numpy as np

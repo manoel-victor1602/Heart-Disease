@@ -1,10 +1,12 @@
-from templates import classification
+from Scripts.templates import classification
 from sklearn.tree import DecisionTreeClassifier
-classifier = DecisionTreeClassifier()
+import pandas as pd
 
-dataset = 'processed_cleveland_data.csv'
+classifier = DecisionTreeClassifier()
     
 names = ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num']
+
+dataset = pd.read_csv('Datasets/processed_cleveland_data.csv', sep=';', names=names)
 
 missingData_index = [11,12]
 oneHotEncode_index = [2,9,17]

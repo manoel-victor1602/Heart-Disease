@@ -3,7 +3,7 @@ from templates import classification
 
 names = ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num']
 
-df = pd.read_csv('cleveland_statlog_data.csv', sep=';', names = names)
+df = pd.read_csv('Datasets/cleveland_statlog_data.csv', sep=';', names = names)
 
 missingData_index = [11,12]
 oneHotEncode_index = [2,9,17]

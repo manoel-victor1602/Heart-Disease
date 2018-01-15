@@ -1,5 +1,4 @@
 from templates import classification
-
 from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier()
 
@@ -15,4 +14,3 @@ cm, scores, classifier = classification(classifier, dataset, names,
                                         oneHotEncode_index=oneHotEncode_index)
 
 print("%.2f" %(scores.mean()*100)+ "%")
-print(cm)

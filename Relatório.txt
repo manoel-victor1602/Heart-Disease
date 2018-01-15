@@ -177,3 +177,47 @@ Dia 7:
 
 O Template criado no dia anterior ("templates.py") foi usado na atualização do script 
 "DT_statlog_prediction.py", funcionou bem sem alterações.
+
+Dia 8
+
+Foi criado um arquivo de valores separados por vírgulas com os dados de cleveland unidos
+com os de statlog com o objetivo de criar uma função ou adaptar a existente para que aceite
+mais de um dataset e os una de forma que seja possivel usar todos ao mesmo tempo, este 
+objetivo ainda nao foi atingido, mas alguns sucessos foram obtidos, como a criação de tal
+arquivo e o uso da função "classification" do "templates.py" para criação da matriz de 
+confusão, validação cruzada e obtenção do classificador treinado com os dados do csv.
+
+Acurácia da Decision Tree obtida com validação cruzado de 10 pastas (10-fold cross validation):
+	97.90% com dataset 'cleveland_statlog_data.csv' pre-processado com todas as features
+
+Matriz de confusão:
+	62 00
+	04 49
+
+Mais testes estatísticos devem ser feitos para considerar a validade dos resultados.
+
+Algumas idéias para próximos passos:
+
+	1 Criação de um dataset a partir de N outros, no template.
+	2 Código de uma representação gráfica mais bela da Matriz de Confusão
+	3 Verificar função 'change', (em que arquivo deve estar?)
+	4 Aplicar outros modelos, já que apenas Decision Tree foi usada até agora
+	5 Uso de GridSearch para busca dos melhores hiper-parâmetros
+	6 Aplicar Rede Neural
+	7 Usar SVM para saber se o problema é linear ou não
+	8 Código de união dos conjuntos de dados
+
+Obs: As idéais não estão em ordem e a maioria pode ser feita de forma independente das outras
+
+Dia 9
+
+Função 'classification' da biblioteca 'templates.py' foi reformulada para que aceitasse
+o dataframe em vez do caminho para o csv, assim o parâmetro 'names' antes utilizado foi
+retirado. Seu escopo também foi alterado com o objetivo de deixar mais enxuto, com isso
+novas funções foram criadas ex: 'feature_Scaling', 'train_test_classify', 'missingData'
+e 'feature_target_split'.
+
+Algumas funções específicas do problema foram retiradas a fim de deixar a biblioteca mais 
+genérica, para isso foi criada a biblioteca 'utils.py'.
+
+A idéia 3 do dia anterior (Dia 8) foi realizada.

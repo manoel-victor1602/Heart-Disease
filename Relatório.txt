@@ -227,3 +227,10 @@ Dia 10
 Os arquivos foram organizados em pastas separadas denominadas "Scripts" para os códigos
 python, "Datasets" para os conjuntos de dados e "Tableau Analysis" para as análises
 realizadas no Tableau Desktop.
+
+A idéia 2 do Dia 8 foi realizada.
+
+a função 'plot_confusion_matrix' foi adicionada ao 'templates.py', os parâmetros necessários
+são a matriz de confusão e os nomes das classes, há parâmetros adicionais como 'normalized'
+que normaliza os dados da matriz, 'save' que salva a matriz apresentada com o nome 'name'
+que o usuário passar.

@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-
 from sklearn.preprocessing import Imputer
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import cross_val_score
-from Scripts.utils import pre_processes_y, change
+from Scripts.utils import pre_processes_y
 import itertools
 import matplotlib.pyplot as plt
 import numpy as np
@@ -14,7 +12,8 @@ import numpy as np
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
                           title='Confusion matrix',
-                          cmap=plt.cm.Blues):
+                          cmap=plt.cm.Blues,
+                          save = False, name = ''):
     """
     This function prints and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
@@ -42,7 +41,10 @@ def plot_confusion_matrix(cm, classes,
 
     plt.tight_layout()
     plt.ylabel('True label')
-    plt.xlabel('Predicted label')
+    plt.xlabel('Predicted label')  
+    
+    if(save and (name != '')):
+        plt.savefig(name)
 
 def oneHotEncode(X, i):
     labelencoder_X = LabelEncoder()
@@ -53,7 +55,7 @@ def oneHotEncode(X, i):
     return X
 
 def feature_target_split(df,
-                         X_values = [],  y_values = [],):
+                         X_values = [],  y_values = []):
     if(X_values == []):
         X = df.iloc[:, :-1].values
     else:

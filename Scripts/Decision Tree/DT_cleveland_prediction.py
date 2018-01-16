@@ -17,5 +17,6 @@ cm, scores, classifier = classification(classifier, dataset, names,
                                         missingData_index=missingData_index, 
                                         oneHotEncode_index=oneHotEncode_index)
 
-plot_confusion_matrix(cm, class_names,
-                      save = True, name = "DT_cleveland_prediction.png")
+plot_confusion_matrix(cm, class_names)
+
+print("%.2f" %(scores.mean()*100) + "%")

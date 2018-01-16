@@ -198,14 +198,11 @@ Mais testes estatísticos devem ser feitos para considerar a validade dos resulta
 
 Algumas idéias para próximos passos:
 
-	1 Criação de um dataset a partir de N outros, no template.
-	2 Código de uma representação gráfica mais bela da Matriz de Confusão
-	3 Verificar função 'change', (em que arquivo deve estar?)
-	4 Aplicar outros modelos, já que apenas Decision Tree foi usada até agora
-	5 Uso de GridSearch para busca dos melhores hiper-parâmetros
-	6 Aplicar Rede Neural
-	7 Usar SVM para saber se o problema é linear ou não
-	8 Código de união dos conjuntos de dados
+	1 Código de uma representação gráfica mais bela da Matriz de Confusão
+	2 Verificar função 'change', (em que arquivo deve estar?)
+	3 Aplicar outros modelos, já que apenas Decision Tree foi usada até agora
+	4 Uso de GridSearch para busca dos melhores hiper-parâmetros
+	5 Aplicar Rede Neural
 
 Obs: As idéais não estão em ordem e a maioria pode ser feita de forma independente das outras
 
@@ -220,7 +217,7 @@ e 'feature_target_split'.
 Algumas funções específicas do problema foram retiradas a fim de deixar a biblioteca mais 
 genérica, para isso foi criada a biblioteca 'utils.py'.
 
-A idéia 3 do dia anterior (Dia 8) foi realizada.
+A idéia 2 do dia anterior (Dia 8) foi realizada.
 
 Dia 10
 
@@ -228,9 +225,34 @@ Os arquivos foram organizados em pastas separadas denominadas "Scripts" para os 
 python, "Datasets" para os conjuntos de dados e "Tableau Analysis" para as análises
 realizadas no Tableau Desktop.
 
-A idéia 2 do Dia 8 foi realizada.
+A idéia 1 do Dia 8 foi realizada.
 
 a função 'plot_confusion_matrix' foi adicionada ao 'templates.py', os parâmetros necessários
 são a matriz de confusão e os nomes das classes, há parâmetros adicionais como 'normalized'
 que normaliza os dados da matriz, 'save' que salva a matriz apresentada com o nome 'name'
 que o usuário passar.
+
+Dia 11
+
+Algumas ideias do Dia 8 foram reconsideradas e dispensadas no futuro próximo.
+
+A seguir serão realizadas as idéias restantes do Dia 8:
+
+	3 Aplicar outros modelos, já que apenas Decision Tree foi usada até agora
+	4 Uso de GridSearch para busca dos melhores hiper-parâmetros
+	5 Aplicar Rede Neural
+
+Foi aplicado o modelo de Aprendizado de Máquina KNN, em comparação com A Árvore de
+Decisão, o KNN obteve os melhores melhores resultados nas predições usando apenas
+uma base de dados, ou seja, usando apenas o de clevelando ou apenas o de statlog,
+ao utilizar as duas bases juntas, o KNN obteve resultados inferiores ao da Árvore
+de Decisão, com esta acertando todos no caso de usar o de cleveland para treino e
+de statlog para predição, esses resultados podem mostrar que a Árvore de Decisão
+sofreu sobre-ajuste aos dados, a acurácia do KNN se manteve em média em 82%, com
+variação de 2% para cima e para baixo, nos testes.
+
+Foi gerada a figura das Matrizes de Confusão de todos os scripts usando tanto Árvore
+de Decisão como KNN (com exceção do script usando Árvore de Decisão e não utilizando
+o atributo 'Fbs').
+
+O próximo modelo a ser usado será o GaussianNB do Naive Bayes

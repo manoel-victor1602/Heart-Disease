@@ -1,4 +1,5 @@
 import pandas as pd
+from Scripts.templates import plot_confusion_matrix
 
 def oneHotEncode(X, i):
     labelencoder_X = LabelEncoder()
@@ -27,6 +28,8 @@ def change(y):
     return y
 
 names = ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num']
+
+class_names = ['Healthy','Sick']
 
 #Reading Training set
 cleveland_dataset = pd.read_csv('Datasets/processed_cleveland_data.csv', sep=';', names = names)
@@ -57,7 +60,7 @@ sc_X = StandardScaler()
 X_cleveland = sc_X.fit_transform(X_cleveland)
 
 #Reading Test set (Statlog's dataset)
-statlog_dataset = pd.read_csv('data.statlog.csv', sep=';', names = names)
+statlog_dataset = pd.read_csv('Datasets/data.statlog.csv', sep=';', names = names)
 X_statlog = statlog_dataset.iloc[:, :-1].values
 y_statlog = statlog_dataset.iloc[:, 13].values
 
@@ -70,8 +73,8 @@ X_statlog = oneHotEncode(X_statlog, 17)
 X_statlog = sc_X.fit_transform(X_statlog)
 
 #Building Classifier
-from sklearn.tree import DecisionTreeClassifier
-classifier = DecisionTreeClassifier()
+from sklearn.neighbors import KNeighborsClassifier
+classifier = KNeighborsClassifier()
 classifier.fit(X_cleveland, y_cleveland)
 
 #Predicting with Classifier
@@ -79,4 +82,7 @@ y_pred = classifier.predict(X_statlog)
 
 #Printing Confusion Matrix
 from sklearn.metrics import confusion_matrix
-confusion_matrix(y_statlog, y_pred)
+cm = confusion_matrix(y_statlog, y_pred)
+
+plot_confusion_matrix(cm, class_names,
+                      save=True, name='KNN_cleveland_statlog.png')

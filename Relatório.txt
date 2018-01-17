@@ -252,7 +252,39 @@ sofreu sobre-ajuste aos dados, a acurácia do KNN se manteve em média em 82%, com
 variação de 2% para cima e para baixo, nos testes.
 
 Foi gerada a figura das Matrizes de Confusão de todos os scripts usando tanto Árvore
-de Decisão como KNN (com exceção do script usando Árvore de Decisão e não utilizando
+de Decisão, como KNN (com exceção do script usando Árvore de Decisão e não utilizando
 o atributo 'Fbs').
 
-O próximo modelo a ser usado será o GaussianNB do Naive Bayes
+O próximo modelo a ser usado será o GaussianNB do Naive Bayes.
+
+Dia 12
+
+Foi criado um template de código para predição a ser usado nos casos em que é aplicado
+validação cruzada nas bases utilizadas, por exemplo 'cleveland_prediction.py'.
+
+Foi utilizado o modelo GaussianNB no 'processed_cleveland_data.csv' e o modelo apresentou
+resultados duvidosos, pois apresenta uma acurácia de em média 81.49%, porém sua matriz de
+confusão mostra que o modelo está sobreajustado para predizer que o paciente está saudável.
+
+Os dados apresentadaos pela matriz de confusão mostra uma acurácia para a classe 'Healthy'
+de 94.11%, enquanto para 'Sick' de 44.44%.
+
+No modelo GaussianNB usando a base de dados de statlog os resultados foram similares aos 
+obtidos com a base de cleveland, uma boa acurácia de 78.89%, porém a matriz de confusão
+apresentando um sobreajuste do modelo para a classe 'Healthy' com uma acurácia para esta
+de 93.54% e para a classe 'Sick' de 34.78%.
+
+As observações anteriores continuaram valendo para a base de dados que contém a de cleveland
+e a de statlog, o que mostra que os atributos possuem relação entre si, algo que o algoritmo
+do Naive Bayes não leva em consideração.
+
+Nos resultados obtidos utilizando a base de dados de clevelando para treino e de statlog para 
+predição houve uma diferença crucial em relação aos testes anteriores, o sobreajuste em relação
+a classe 'Healthy' não ocorreu, havendo uma certa harmonia entre as classes, obtendo no geral
+uma acurácia de 85.18%, acurácia para a classe 'Healthy' de 88.66% e para a classe 'Sick' de 80.83%.
+
+Obs: As matrizez de confusão geradas foram arquivadas da mesma forma que as anteriores para análise
+futura.
+
+Para passos futuros falta utilizar no 'templates.py' GridSearch para busca dos melhores hiper-perâmetros
+e aplicação do modelo de Rede Neural.

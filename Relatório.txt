@@ -288,3 +288,8 @@ futura.
 
 Para passos futuros falta utilizar no 'templates.py' GridSearch para busca dos melhores hiper-perâmetros
 e aplicação do modelo de Rede Neural.
+
+Dia 13
+
+Foram feitas análises de relação da feature 'Fbs' com as demais e foi constatado que ela nao possui muita
+influencia no diagnóstico de doença do coração, portanto a retirada da mesma é aceitável sem grandes perdas.

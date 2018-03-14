@@ -278,18 +278,97 @@ As observações anteriores continuaram valendo para a base de dados que contém a 
 e a de statlog, o que mostra que os atributos possuem relação entre si, algo que o algoritmo
 do Naive Bayes não leva em consideração.
 
-Nos resultados obtidos utilizando a base de dados de clevelando para treino e de statlog para 
+Nos resultados obtidos utilizando a base de dados de cleveland para treino e de statlog para 
 predição houve uma diferença crucial em relação aos testes anteriores, o sobreajuste em relação
 a classe 'Healthy' não ocorreu, havendo uma certa harmonia entre as classes, obtendo no geral
 uma acurácia de 85.18%, acurácia para a classe 'Healthy' de 88.66% e para a classe 'Sick' de 80.83%.
 
-Obs: As matrizez de confusão geradas foram arquivadas da mesma forma que as anteriores para análise
-futura.
+Obs: As matrizes de confusão geradas foram arquivadas da mesma forma que as anteriores para análises
+futuras.
 
 Para passos futuros falta utilizar no 'templates.py' GridSearch para busca dos melhores hiper-perâmetros
 e aplicação do modelo de Rede Neural.
 
 Dia 13
 
-Foram feitas análises de relação da feature 'Fbs' com as demais e foi constatado que ela nao possui muita
-influencia no diagnóstico de doença do coração, portanto a retirada da mesma é aceitável sem grandes perdas.
+Foram feitas análises de relação da feature 'Fbs' com as demais e foi constatado que ela nao possui
+influencia significativa no diagnóstico de doença do coração nestas bases de dados, portanto a retirada 
+da mesma é aceitável sem grandes perdas.
+
+Dia 14
+
+Foram feitas análises baseadas em métricas de correlação:
+
+	- Covariância
+	- Coeficiente de Correlação de Pearson
+	- Coeficiente de Correlação de Postos de Spearman e de Kendall
+
+O atributo 'Fbs' possui a menor relação com a variável alvo em todas as métricas testadas.
+
+1) Covariância:
+
+age          2.474636
+sex          0.128866
+cp           0.480165
+trestbps     3.410946
+chol         4.510491
+fbs          0.025900
+restecg      0.224543
+thalach    -11.663782
+exang        0.229165
+oldpeak      0.719048
+slope        0.286134
+ca           0.598026
+thal         1.206478
+num          1.509300
+
+2) Coeficiente de Correalção de Pearson:
+
+age         0.222853
+sex         0.224469
+cp          0.407075
+trestbps    0.157754
+chol        0.070909
+fbs         0.059186
+restecg     0.183696
+thalach    -0.415040
+exang       0.397057
+oldpeak     0.504092
+slope       0.377957
+ca          0.520968
+thal        0.498238
+num         1.000000
+
+3) Coeficiente de Correlação de Postos de Kendall:
+
+age         0.187547
+sex         0.239189
+cp          0.419369
+trestbps    0.107179
+chol        0.086346
+fbs         0.047903
+restecg     0.166676
+thalach    -0.343509
+exang       0.403729
+oldpeak     0.373256
+slope       0.364461
+ca          0.477179
+thal        0.477434
+num         1.000000
+
+4) Coeficiente de Correlação de Postos de Spearman:
+
+age         0.241696
+sex         0.257866
+cp          0.486933
+trestbps    0.137164
+chol        0.109293
+fbs         0.051643
+restecg     0.181248
+thalach    -0.443944
+exang       0.435255
+oldpeak     0.463032
+slope       0.400302
+ca          0.530939
+thal        0.528637
+num         1.000000

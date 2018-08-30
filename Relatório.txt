@@ -372,3 +372,17 @@ slope       0.400302
 ca          0.530939
 thal        0.528637
 num         1.000000
+
+Dia 15
+
+Foram plotados alguns gráficos da biblioteca Seaborn, são eles:
+
+- Countplot
+- Violinplot
+- Swarmplot
+- Heatmap
+- Boxplot
+- PairGrid
+
+Os que demonstraram resultados mais promissores foram o Boxplot e Violinplot, mostrando mais uma vez a
+falta de correlação entre a variável Fbs com o atributo alvo, bem como com as outras variáveis.
